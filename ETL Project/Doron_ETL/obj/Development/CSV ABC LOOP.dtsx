@@ -1,0 +1,671 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/2/2022 4:56:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-5OSF0JJ"
+  DTS:CreatorName="DESKTOP-5OSF0JJ\doron"
+  DTS:DTSID="{FC4B5258-D579-4FDF-97B3-E8675C0075AB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="1037"
+  DTS:ObjectName="CSV ABC LOOP"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{38F73C62-EF75-44EA-9C37-FDB764227B0B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ABC Loop Files]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5D47C52A-787C-4611-AA4B-3AE2B02C2D5F}"
+      DTS:ObjectName="ABC Loop Files">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::Path]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1037"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1255">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Key"
+              DTS:DTSID="{58ADE5C7-F384-47CE-8CB6-47B4F374B3AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Vendor_Name"
+              DTS:DTSID="{0EAA7DDE-CCE9-4B81-80CE-33EDDEE5E829}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BU"
+              DTS:DTSID="{1D9E4F07-66E0-40B6-ACFC-951E5044C500}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUB_BU"
+              DTS:DTSID="{2ED5D967-ED2C-4AD7-AFFF-02669D108BD8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Program_Name"
+              DTS:DTSID="{95D09CB7-D1D5-4909-9C5F-680859FE6A44}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Period"
+              DTS:DTSID="{7B65FC64-1AA2-40C7-8DA6-8C2234F39659}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D5B44B7A-C61F-401C-B5BF-CF44EACA62C7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Path">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ABC Loop - Files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{BF80E1CD-D320-41E4-B873-37D0F2230174}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ABC Loop - Files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{62AB3375-0776-40F2-A2DB-B9C181DF3D4B}"
+        DTS:ObjectName="{62AB3375-0776-40F2-A2DB-B9C181DF3D4B}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\doron\Desktop\SSIS Projects\SSIS Data\ABC CSV" />
+            <FEFEProperty
+              FileSpec="*.CSV" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\ABC Loop - Files\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{91891E35-3EEF-42F1-9C91-097AA4F030F2}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1037"
+                  name="ABC Loop Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[ABC Loop Files]"
+                      connectionManagerRefId="Package.ConnectionManagers[ABC Loop Files]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Key]"
+                          codePage="1255"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[Key]"
+                          length="50"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Key]"
+                          name="Key"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Vendor_Name]"
+                          codePage="1255"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[Vendor_Name]"
+                          length="50"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Vendor_Name]"
+                          name="Vendor_Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[BU]"
+                          codePage="1255"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[BU]"
+                          length="50"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[BU]"
+                          name="BU"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[SUB_BU]"
+                          codePage="1255"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[SUB_BU]"
+                          length="50"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[SUB_BU]"
+                          name="SUB_BU"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Program_Name]"
+                          codePage="1255"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[Program_Name]"
+                          length="50"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Program_Name]"
+                          name="Program_Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Period]"
+                          codePage="1255"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[Period]"
+                          length="50"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Period]"
+                          name="Period"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[Key]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="Key" />
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[Vendor_Name]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="Vendor_Name" />
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[BU]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="BU" />
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[SUB_BU]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="SUB_BU" />
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[Program_Name]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="Program_Name" />
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].ExternalColumns[Period]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="Period" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1255"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[ABC_Loop]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1255</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{587DF474-B97C-4FFB-A09B-4396D37E79FF}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[DESKTOP-5OSF0JJ.TestDB_Mrr]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Key]"
+                          cachedCodepage="1255"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Key"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Key]"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Key]" />
+                        <inputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Vendor_Name]"
+                          cachedCodepage="1255"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Vendor_Name"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Vendor_Name]"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Vendor_Name]" />
+                        <inputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BU]"
+                          cachedCodepage="1255"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="BU"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BU]"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[BU]" />
+                        <inputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SUB_BU]"
+                          cachedCodepage="1255"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="SUB_BU"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SUB_BU]"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[SUB_BU]" />
+                        <inputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Program_Name]"
+                          cachedCodepage="1255"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Program_Name"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Program_Name]"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Program_Name]" />
+                        <inputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Period]"
+                          cachedCodepage="1255"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Period"
+                          externalMetadataColumnId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Period]"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output].Columns[Period]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Key]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="Key" />
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Vendor_Name]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="Vendor_Name" />
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BU]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="BU" />
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SUB_BU]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="SUB_BU" />
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Program_Name]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="Program_Name" />
+                        <externalMetadataColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Period]"
+                          codePage="1255"
+                          dataType="str"
+                          length="50"
+                          name="Period" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\ABC Loop - Files\Data Flow Task.Paths[Flat File Source Output]"
+                  endId="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{23753A1B-90E3-4AAA-89A0-11B0ADEC62ED}"
+          DTS:ObjectName="{23753A1B-90E3-4AAA-89A0-11B0ADEC62ED}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::Path" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\ABC Loop - Files\Data Flow Task"
+          TopLeft="111,50" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="376,169"
+          Size="376,212"
+          Id="Package\ABC Loop - Files"
+          TopLeft="359,178" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ABC Loop - Files\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167,42"
+          Id="Package\ABC Loop - Files\Data Flow Task\ABC Loop Source"
+          TopLeft="605,160" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination"
+          TopLeft="596,310" />
+        <EdgeLayout
+          Id="Package\ABC Loop - Files\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="686.5,202">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,108"
+              Start="0,0"
+              End="0,100.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,100.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,42.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ABC Loop - Files\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

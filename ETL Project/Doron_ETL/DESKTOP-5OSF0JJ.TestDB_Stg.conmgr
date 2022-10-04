@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-5OSF0JJ.TestDB_Stg"
+  DTS:DTSID="{9899EDB7-4C05-4C11-ACC6-B198ACA04426}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-5OSF0JJ;Initial Catalog=TestDB_Stg;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Doron_ETL-{9899EDB7-4C05-4C11-ACC6-B198ACA04426}DESKTOP-5OSF0JJ.TestDB_Stg;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
